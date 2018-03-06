@@ -1,7 +1,7 @@
 import sys
 import os
 import csv
-
+import ntpath
 
 prefix_ = "##"
 suffix_ = "##"
@@ -29,16 +29,16 @@ if __name__ == "__main__":
 		print("%s <base_file> <all_content>" % args[0])
 		sys.exit()
 
-	base_file_name = args[1]
-	brute_file_name = args[2]
+	base_file_path = args[1]
+	brute_file_path = args[2]
 
 	base_content = ""
-	with open(base_file_name, "r") as f:
+	with open(base_file_path, "r") as f:
 		base_content = f.read()
 		#print(base_content)
 
 	sss = []
-	with open(brute_file_name, "r") as f:
+	with open(brute_file_path, "r") as f:
 		sss = csv.reader(f)
 
 		brute = []
@@ -57,4 +57,5 @@ if __name__ == "__main__":
 			brute.append((key, contents))
 
 		print(brute)
-		recursive_replace(base_file_name, base_content, brute, 0, out_dir_)
+		file_name = ntpath.basename(base_file_path)
+		recursive_replace(file_name, base_content, brute, 0, out_dir_)
