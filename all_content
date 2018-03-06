@@ -1,7 +1,10 @@
 r1,hoge1:h-yo1:y-pi1:p
 r2,mm2:m-nn2n
 r3,ro3-cc3
-r4,bb4
+r4?r1=hoge1?r2=mm2,ok1-ok2
+r4,false
 r5,cc5-ag5-zz5
 r6,mm6
 r7,あば:a-び:b
+r8?r1=hoge1?r2=mm2,ok1-ok2
+r8,false
